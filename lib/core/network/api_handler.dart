@@ -16,7 +16,7 @@ class ApiHandler {
     try {
       final Response response = await onTry();
       if (response.statusCode == 201 || response.statusCode == 200 || response.statusCode == 204) {
-        return onSuccess(response);
+        // return onSuccess(response);
         return _handleDataTypeException(response: response, onSuccess: onSuccess);
       } else if (response.statusCode == 401) {
         throw UnauthorizedException();
