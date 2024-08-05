@@ -13,8 +13,9 @@ The Appify contains the minimal implementation required to create a new library 
 
 <div>
     <img src="https://github.com/user-attachments/assets/df5dde45-c0c9-4af6-b220-8da86c897dc0" width="35%">
-    ![1](https://github.com/user-attachments/assets/df5dde45-c0c9-4af6-b220-8da86c897dc0)
-
+    <img src="https://github.com/user-attachments/assets/e260fb59-4203-4812-b340-d0c4677de501" width="35%">
+    <img src="https://github.com/user-attachments/assets/025ccd2d-3ca9-4d0d-9f33-8f46eecb883c" width="35%">
+    <img src="https://github.com/user-attachments/assets/8cf9bd7b-e282-4a1e-bc49-baef28794dc3" width="35%">
 </div>
 
 ## How to Use
