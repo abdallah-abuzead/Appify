@@ -175,11 +175,11 @@ core/
 3- app_locale - Contains all app supported locals, and switch between them. 
 4- app_router — This file contains all the navigation methods for your application, and it uses Get routing.
 5- constants - All the application level constants are defined in this directory with-in their respective files. This directory contains the constants for `icons pathes`, `images pathes`, `colors` `api endpoints`, `preferences` and `strings`.
-5- errors - Contains all exceptions and failures in the app.
-6- network - Contains the dio instance configurations, request header, token handling, network checker,and response and error handling.
-7- screens — Contains the unmoduled/common screens of your application.
-8- utils — Contains the utilities/common functions, extentions of your application.
-9- widgets — Contains the common widgets for your applications. For example, Button, TextField etc.
+6- errors - Contains all exceptions and failures in the app.
+7- network - Contains the dio instance configurations, request header, token handling, network checker,and response and error handling.
+8- screens — Contains the unmoduled/common screens of your application.
+9- utils — Contains the utilities/common functions, extentions of your application.
+10- widgets — Contains the common widgets for your applications. For example, Button, TextField etc.
 ```
 
 Here is the modules folder structure which flutter provides.
