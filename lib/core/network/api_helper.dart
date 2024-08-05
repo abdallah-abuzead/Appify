@@ -7,7 +7,7 @@ import 'dio_interceptor.dart';
 
 class ApiHelper {
   static final Dio dio = Dio();
-  String _userToken = '663|4vZUeyj573qT0eCITs8fT3ayIplaLlxqecTmkIY4dc0a04b7';
+  String? _userToken = '663|4vZUeyj573qT0eCITs8fT3ayIplaLlxqecTmkIY4dc0a04b7';
 
   static final ApiHelper _instance = ApiHelper._();
 
@@ -45,5 +45,10 @@ class ApiHelper {
           maxWidth: 90,
         ),
       ]);
+  }
+
+  static set userToken(String? userToken) {
+    _instance._userToken = userToken;
+    dio.options.headers.addAll({"Authorization": "Bearer ${_instance._userToken}"});
   }
 }

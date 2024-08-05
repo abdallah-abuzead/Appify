@@ -13,19 +13,17 @@ class InputLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 0.h),
+      padding: EdgeInsets.only(bottom: 8.h),
       child: Row(
         children: [
           AppText(
             label,
-            fontSize: 14.sp,
             color: AppColors.text.shade300,
-            fontWeight: isBold ? FontWeight.w500 : FontWeight.w400,
+            fontWeight: isBold ? FontWeight.w700 : FontWeight.w500,
           ),
           if (isRequired)
             AppText(
               '*',
-              fontSize: 14.sp,
               color: AppColors.error.shade600,
             ),
         ],

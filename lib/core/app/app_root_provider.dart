@@ -1,3 +1,4 @@
+import 'package:appify/modules/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,13 +16,13 @@ class AppRootProvider extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        // auth
+        BlocProvider(create: (context) => getIt<AuthBloc>()),
         // home
-        BlocProvider(create: (context) => getIt<WorkshopsCubit>()..getAllWorkshops(), lazy: false),
+        BlocProvider(create: (context) => getIt<WorkshopsCubit>()..getAllWorkshops()),
+        // reservations
         BlocProvider(create: (context) => getIt<ReservationsActionsCubit>()),
-        BlocProvider(
-          create: (context) => getIt<ReservationsCubit>()..getAllReservations(),
-          lazy: false,
-        ),
+        BlocProvider(create: (context) => getIt<ReservationsCubit>()..getAllReservations()),
       ],
       child: child,
     );

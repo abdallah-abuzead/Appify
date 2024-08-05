@@ -5,6 +5,7 @@ class AppUrl {
   // =========================================================================================================
   /// end points
   // workshops
+  static const String login = 'authentication/login';
   static const String workshops = 'client/workshop/nearest';
   static const String reserve = 'client/workshop/reservation';
   static const String reservations = 'client/workshop/orders/all';

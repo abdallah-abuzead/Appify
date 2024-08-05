@@ -4,6 +4,7 @@ class AppColors {
   static const MaterialColor background = MaterialColor(
     0xFFEDEDED,
     {
+      100: Color(0xFFF6F6F6),
       200: Color(0xFFEDEDED),
     },
   );
