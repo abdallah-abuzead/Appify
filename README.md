@@ -108,7 +108,7 @@ Now, lets dive into the lib folder which has the main code for the application.
 ```
 core/
 ├── app/
-    |- app_initializer.dart
+    ├── app_initializer.dart
     |- app_root_provider.dart
     |- my_app.dart
 |- app_injections/
