@@ -12,7 +12,7 @@ The Appify contains the minimal implementation required to create a new library 
 ## 📱 Screenshots of the application
 
 <div>
-    <img src="https://github.com/Marwanhoo/flutter_task_semi_corner/assets/125823028/4b565c95-548c-4b02-aa25-2dd5f03ca71a" width="35%">
+    <img src="https://github.com/user-attachments/assets/df5dde45-c0c9-4af6-b220-8da86c897dc0" width="35%">
     ![1](https://github.com/user-attachments/assets/df5dde45-c0c9-4af6-b220-8da86c897dc0)
 
 </div>
