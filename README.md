@@ -9,6 +9,13 @@ Appify project created in flutter using Cubit and Bloc. Appify supports both and
 
 The Appify contains the minimal implementation required to create a new library or project. The repository code is preloaded with some basic components like basic app architecture, app theme, constants and required dependencies to create a new project. By using boiler plate code as standard initializer, we can have same patterns in all the projects that will inherit it. This will also help in reducing setup & development time by allowing you to use same code pattern and avoid re-writing from scratch.
 
+## 📱 Screenshots of the application
+
+<div>
+    <img src="https://github.com/Marwanhoo/flutter_task_semi_corner/assets/125823028/4b565c95-548c-4b02-aa25-2dd5f03ca71a" width="35%">
+    
+</div>
+
 ## How to Use
 
 **Step 1:**
