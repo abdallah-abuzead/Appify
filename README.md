@@ -3,11 +3,15 @@
 
 # Appify Project
 
-Appify project created in flutter using Cubit and Bloc. Appify supports both android and iOS platforms.
+
+## ✨ Description
+Appify project created in Flutter using Cubit and Bloc. Appify supports both Android and iOS platforms.
+It introduces services for cars, like internal wash, external wash, chemical wash, and so on.
+It lists all the nearest workshops to your current location.
 
 ## Getting Started
 
-The Appify contains the minimal implementation required to create a new library or project. The repository code is preloaded with some basic components like basic app architecture, app theme, constants and required dependencies to create a new project. By using boiler plate code as standard initializer, we can have same patterns in all the projects that will inherit it. This will also help in reducing setup & development time by allowing you to use same code pattern and avoid re-writing from scratch.
+Appify contains the minimal implementation required to create a new library or project. The repository code is preloaded with some basic components like basic app architecture, app theme, constants, and required dependencies to create a new project. By using boilerplate code as a standard initializer, we can have the same patterns in all the projects that will inherit it. This will also help in reducing setup & development time by allowing you to use the same code pattern and avoid re-writing from scratch.
 
 ## 📱 Screenshots of the application
 
@@ -30,7 +34,7 @@ https://github.com/abdallah-abuzead/Appify
 
 **Step 2:**
 
-Go to project root and execute the following command in console to get the required dependencies:
+Go to the project root and execute the following command in the console to get the required dependencies:
 
 ```
 flutter pub get 
@@ -66,8 +70,8 @@ flutter pub get
 * [Dependency Injection](https://github.com/fluttercommunity/get_it)
 * [dartz](https://github.com/spebbe/dartz) (Functional programming)
 
-### Folder Structure
-Here is the core folder structure which flutter provides.
+### 📄 Folder Structure
+Here is the core folder structure that Flutter provides.
 
 ```
 flutter-app/
@@ -88,6 +92,7 @@ assets/
 |- lottie/
 ```
 
+## 🌴 Folders tree
 Here is the folder structure we have been using in this project
 
 ```
@@ -179,19 +184,19 @@ core/
 ```
 
 ```
-1- app - Contains all needed initializations of services and setting for the app. 
+1- app - Contains all needed initializations of services and settings for the app. 
 2- app_injections - includes all injected instances used in the app. 
-3- app_locale - Contains all app supported locals, and switch between them. 
+3- app_locale - Contains all app-supported locals, and switches between them. 
 4- app_router — This file contains all the navigation methods for your application, and it uses Get routing.
-5- constants - All the application level constants are defined in this directory with-in their respective files. This directory contains the constants for `icons pathes`, `images pathes`, `colors` `api endpoints`, `preferences` and `strings`.
+5- constants - All the application-level constants are defined in this directory within their respective files. This directory contains the constants for `icons paths`, `images paths`, `colors` `API endpoints`, `preferences`, and `strings`.
 6- errors - Contains all exceptions and failures in the app.
-7- network - Contains the dio instance configurations, request header, token handling, network checker,and response and error handling.
-8- screens — Contains the unmoduled/common screens of your application.
-9- utils — Contains the utilities/common functions, extentions of your application.
-10- widgets — Contains the common widgets for your applications. For example, Button, TextField etc.
+7- network - Contains the dio instance configurations, request header, token handling, network checker, and response and error handling.
+8- screens — Contains the unmodulated/common screens of your application.
+9- utils — Contains the utilities/common functions, and extensions of your application.
+10- widgets — Contains the common widgets for your applications. For example, Button, TextField, etc.
 ```
 
-Here is the modules folder structure which flutter provides.
+Here is the module folder structure I have been using for this project.
 Each module has the same structure and layers, so I'll explain one module and the other modules are the same.
 
 ```
@@ -209,8 +214,8 @@ modules/
     |- domain/
         |- entities/
         |- repositories/
-        |- usecases/
-    |- presentaion/
+        |- use_cases/
+    |- presentation/
         |- cubits/
             |- reservations/
                 |- reservations_cubit.dart
@@ -235,7 +240,7 @@ modules/
 
 ### Main
 
-This is the starting point of the application. All the application level configurations are defined in this file i.e, theme, routes, title, orientation etc.
+This is the starting point of the application. All the application-level configurations are defined in this file i.e., theme, routes, title, orientation, etc.
 
 ```dart
 import 'package:easy_localization/easy_localization.dart';
