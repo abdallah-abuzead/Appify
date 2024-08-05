@@ -76,21 +76,21 @@ Here is the core folder structure that Flutter provides.
 
 ```
 flutter-app/
-|- android
-|- assets
-|- build
-|- ios
-|- lib
-|- test
+├── android
+├── assets
+├── build
+├── ios
+├── lib
+└── test
 ```
 
 ```
 assets/
-|- fonts/
-|- icons/
-|- images/
-|- languages/
-|- lottie/
+├── fonts/
+├── icons/
+├── images/
+├── languages/
+└── lottie/
 ```
 
 ## 🌴 Folders tree
@@ -98,16 +98,16 @@ Here is the folder structure we have been using in this project
 
 ```
 lib/
-|- core/
-|- modules/
-|- main.dart
+├── core/
+├── modules/
+└── main.dart
 ```
 
 Now, lets dive into the lib folder which has the main code for the application.
 
 ```
 core/
-|- app/
+├── app/
     |- app_initializer.dart
     |- app_root_provider.dart
     |- my_app.dart
