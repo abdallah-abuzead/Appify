@@ -1,16 +1,13 @@
 # This branch is still under development
 
 
-# Boilerplate Project
+# Appify Project
 
-A boilerplate project created in flutter using MobX and Provider. Boilerplate supports both web and mobile, clone the appropriate branches mentioned below:
-
-* For Mobile: https://github.com/zubairehman/flutter-boilerplate-project/tree/master (stable channel)
-* For Web: https://github.com/zubairehman/flutter-boilerplate-project/tree/feature/web-support (beta channel)
+Appify project created in flutter using Cubit and Bloc. Appify supports both android and iOS platforms.
 
 ## Getting Started
 
-The Boilerplate contains the minimal implementation required to create a new library or project. The repository code is preloaded with some basic components like basic app architecture, app theme, constants and required dependencies to create a new project. By using boiler plate code as standard initializer, we can have same patterns in all the projects that will inherit it. This will also help in reducing setup & development time by allowing you to use same code pattern and avoid re-writing from scratch.
+The Appify contains the minimal implementation required to create a new library or project. The repository code is preloaded with some basic components like basic app architecture, app theme, constants and required dependencies to create a new project. By using boiler plate code as standard initializer, we can have same patterns in all the projects that will inherit it. This will also help in reducing setup & development time by allowing you to use same code pattern and avoid re-writing from scratch.
 
 ## How to Use
 
@@ -19,7 +16,7 @@ The Boilerplate contains the minimal implementation required to create a new lib
 Download or clone this repo by using the link below:
 
 ```
-https://github.com/zubairehman/flutter-boilerplate-project.git
+https://github.com/abdallah-abuzead/Appify
 ```
 
 **Step 2:**
@@ -30,73 +27,35 @@ Go to project root and execute the following command in console to get the requi
 flutter pub get 
 ```
 
-**Step 3:**
-
-This project uses `inject` library that works with code generation, execute the following command to generate files:
-
-```
-flutter packages pub run build_runner build --delete-conflicting-outputs
-```
-
-or watch command in order to keep the source code synced automatically:
-
-```
-flutter packages pub run build_runner watch
-```
-
-## Hide Generated Files
-
-In-order to hide generated files, navigate to `Android Studio` -> `Preferences` -> `Editor` -> `File Types` and paste the below lines under `ignore files and folders` section:
-
-```
-*.inject.summary;*.inject.dart;*.g.dart;
-```
-
-In Visual Studio Code, navigate to `Preferences` -> `Settings` and search for `Files:Exclude`. Add the following patterns:
-```
-**/*.inject.summary
-**/*.inject.dart
-**/*.g.dart
-```
-
-## Boilerplate Features:
+## Appify Features:
 
 * Splash
-* Login
 * Home
+* Workshops
+* Reservations
 * Routing
 * Theme
 * Dio
-* Database
-* MobX (to connect the reactive data of your application with the UI)
-* Provider (State Management)
-* Encryption
-* Validation
-* Code Generation
-* User Notifications
-* Logging
+* Cubit (to connect the reactive data of your application with the UI)
+* Bloc (State Management)
 * Dependency Injection
-* Dark Theme Support (new)
-* Multilingual Support (new)
-* Provider example (new)
+* Validation
+* Error Handling
 
 ### Up-Coming Features:
 
-* Connectivity Support
-* Background Fetch Support
+* Authentication
+* Caching data
+* Pagination
+* Settings
 
 ### Libraries & Tools Used
 
 * [Dio](https://github.com/flutterchina/dio)
-* [Database](https://github.com/tekartik/sembast.dart)
-* [MobX](https://github.com/mobxjs/mobx.dart) (to connect the reactive data of your application with the UI)
-* [Provider](https://github.com/rrousselGit/provider) (State Management)
-* [Encryption](https://github.com/xxtea/xxtea-dart)
-* [Validation](https://github.com/dart-league/validators)
-* [Logging](https://github.com/zubairehman/Flogs)
-* [Notifications](https://github.com/AndreHaueisen/flushbar)
-* [Json Serialization](https://github.com/dart-lang/json_serializable)
+* [Cubit](https://github.com/felangel/bloc) (to connect the reactive data of your application with the UI)
+* [Bloc](https://github.com/felangel/bloc) (State Management)
 * [Dependency Injection](https://github.com/fluttercommunity/get_it)
+* [dartz](https://github.com/spebbe/dartz) (Functional programming)
 
 ### Folder Structure
 Here is the core folder structure which flutter provides.
@@ -104,148 +63,165 @@ Here is the core folder structure which flutter provides.
 ```
 flutter-app/
 |- android
+|- assets
 |- build
 |- ios
 |- lib
 |- test
 ```
 
+```
+assets/
+|- fonts/
+|- icons/
+|- images/
+|- languages/
+|- lottie/
+```
+
 Here is the folder structure we have been using in this project
 
 ```
 lib/
-|- constants/
-|- data/
-|- stores/
-|- ui/
-|- utils/
-|- widgets/
+|- core/
+|- modules/
 |- main.dart
-|- routes.dart
 ```
 
 Now, lets dive into the lib folder which has the main code for the application.
 
 ```
-1- constants - All the application level constants are defined in this directory with-in their respective files. This directory contains the constants for `theme`, `dimentions`, `api endpoints`, `preferences` and `strings`.
-2- data - Contains the data layer of your project, includes directories for local, network and shared pref/cache.
-3- stores - Contains store(s) for state-management of your application, to connect the reactive data of your application with the UI. 
-4- ui — Contains all the ui of your project, contains sub directory for each screen.
-5- util — Contains the utilities/common functions of your application.
-6- widgets — Contains the common widgets for your applications. For example, Button, TextField etc.
-7- routes.dart — This file contains all the routes for your application.
-8- main.dart - This is the starting point of the application. All the application level configurations are defined in this file i.e, theme, routes, title, orientation etc.
-```
-
-### Constants
-
-This directory contains all the application level constants. A separate file is created for each type as shown in example below:
-
-```
-constants/
-|- app_theme.dart
-|- dimens.dart
-|- endpoints.dart
-|- preferences.dart
-|- strings.dart
-```
-
-### Data
-
-All the business logic of your application will go into this directory, it represents the data layer of your application. It is sub-divided into three directories `local`, `network` and `sharedperf`, each containing the domain specific logic. Since each layer exists independently, that makes it easier to unit test. The communication between UI and data layer is handled by using central repository.
-
-```
-data/
-|- local/
-    |- constants/
-    |- datasources/
-    |- app_database.dart
-   
+core/
+|- app/
+    |- app_initializer.dart
+    |- app_root_provider.dart
+    |- my_app.dart
+|- app_injections/
+    |- app_injections.dart
+|- app_locale/
+    |- app_locale.dart
+|- app_router/
+    |- app_router.dart
+|- app_themes/
+    |- app_themes.dart
+|- bloc_observer/
+    |- bloc_observer.dart 
+|- constants/
+    |- assets/
+        |- app_icons.dart
+        |- app_images.dart
+    |- app_colors.dart  
+    |- app_constants.dart  
+    |- app_strings.dart  
+    |- app_url.dart 
+|- errors/
+    |- exceptions.dart
+    |- failure_message.dart
+    |- failures.dart
 |- network/
-    |- constants/
-    |- exceptions/
-    |- rest_client.dart
-    
-|- sharedpref
-    |- constants/
-    |- shared_preference_helper.dart
-    
-|- repository.dart
-
+    |- api_handler.dart
+    |- api_helper.dart
+    |- dio_interceptor.dart
+    |- network_checker.dart
+|- screens/
+    |- bottom_nav_screen.dart 
+    |- splash_screen.dart
+|- utils/
+    |- caching_sevices/
+        |- shared_preferences_services.dart
+    |- extensions/
+        |- date_time_extensions.dart
+        |- math_extensions.dart
+        |- on_tap_extension.dart
+        |- size_extensions.dart
+        |- string_extensions.dart
+    |- validation/
+        |- validation_error.dart
+        |- validator.dart
+    |- app_date_utils.dart
+    |- app_functions.dart
+    |- debouncer.dart
+|- widgets
+    |- app_input_fields/
+        |- app_rounded_text_field.dart
+        |- input_label.dart
+    |- cookbooks/
+        |- loading_dialog.dart
+        |- loading_progress.dart
+        |- loading_widget.dart
+        |- snackbar_message.dart
+        |- toast.dart
+    |- dialogs/
+        |- app_dialog.dart
+    |- errors/
+        |- empty_widget.dart
+        |- offline_widget.dart
+        |- server_error_widget.dart
+        |- unauthorized_widget.dart
+    |- app_button.dart
+    |- app_drop_down_menu.dart
+    |- app_text.dart
+    |- change_language_widget.dart
+    |- circle_cached_network_image.dart
+    |- custom_app_bar.dart
+    |- custom_auto_size_text.dart
+    |- rounded_cached_network_image.dart
+           
 ```
 
-### Stores
-
-The store is where all your application state lives in flutter. The Store is basically a widget that stands at the top of the widget tree and passes it's data down using special methods. In-case of multiple stores, a separate folder for each store is created as shown in the example below:
-
 ```
-stores/
-|- login/
-    |- login_store.dart
-    |- form_validator.dart
-```
-
-### UI
-
-This directory contains all the ui of your application. Each screen is located in a separate folder making it easy to combine group of files related to that particular screen. All the screen specific widgets will be placed in `widgets` directory as shown in the example below:
-
-```
-ui/
-|- login
-   |- login_screen.dart
-   |- widgets
-      |- login_form.dart
-      |- login_button.dart
+1- app - Contains all needed initializations of services and setting for the app. 
+2- app_injections - includes all injected instances used in the app. 
+3- app_locale - Contains all app supported locals, and switch between them. 
+4- app_router — This file contains all the navigation methods for your application, and it uses Get routing.
+5- constants - All the application level constants are defined in this directory with-in their respective files. This directory contains the constants for `icons pathes`, `images pathes`, `colors` `api endpoints`, `preferences` and `strings`.
+5- errors - Contains all exceptions and failures in the app.
+6- network - Contains the dio instance configurations, request header, token handling, network checker,and response and error handling.
+7- screens — Contains the unmoduled/common screens of your application.
+8- utils — Contains the utilities/common functions, extentions of your application.
+9- widgets — Contains the common widgets for your applications. For example, Button, TextField etc.
 ```
 
-### Utils
-
-Contains the common file(s) and utilities used in a project. The folder structure is as follows:
-
-```
-utils/
-|- encryption
-   |- xxtea.dart
-|- date
-  |- date_time.dart
-```
-
-### Widgets
-
-Contains the common widgets that are shared across multiple screens. For example, Button, TextField etc.
+Here is the modules folder structure which flutter provides.
+Each module has the same structure and layers, so I'll explain one module and the other modules are the same.
 
 ```
-widgets/
-|- app_icon_widget.dart
-|- empty_app_bar.dart
-|- progress_indicator.dart
-```
+modules/
+|- auth/
+|- home/
+|- reservations/
+    |- data/
+        |- data_sources/
+            |- reservations_remote_data_source.dart
+        |- models/
+            |- reservation.dart
+        |- repositories/
+            |- reservations_repository.dart
+    |- domain/
+        |- entities/
+        |- repositories/
+        |- usecases/
+    |- presentaion/
+        |- cubits/
+            |- reservations/
+                |- reservations_cubit.dart
+                |- reservations_state.dart
+            |- reservations_actions/
+                |- reservations_actions_cubit.dart
+                |- reservations_actions_state.dart
+        |- screens/
+            |- order_details_screen.dart
+            |- reservation_details_screen.dart
+            |- reservations_screen.dart
+        |- widgets/
+            |- order_details_screen/
+                |- order_details_item.dart
+            |- reservations_screen/
+                |- pending_tab.dart
+                |- reservation_card.dart
+                |- reservation_card_details_item.dart
+|- settings/
 
-### Routes
-
-This file contains all the routes for your application.
-
-```dart
-import 'package:flutter/material.dart';
-
-import 'ui/post/post_list.dart';
-import 'ui/login/login.dart';
-import 'ui/splash/splash.dart';
-
-class Routes {
-  Routes._();
-
-  //static variables
-  static const String splash = '/splash';
-  static const String login = '/login';
-  static const String home = '/post';
-
-  static final routes = <String, WidgetBuilder>{
-    splash: (BuildContext context) => SplashScreen(),
-    login: (BuildContext context) => LoginScreen(),
-    home: (BuildContext context) => HomeScreen(),
-  };
-}
 ```
 
 ### Main
@@ -253,42 +229,32 @@ class Routes {
 This is the starting point of the application. All the application level configurations are defined in this file i.e, theme, routes, title, orientation etc.
 
 ```dart
-import 'package:boilerplate/routes.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-import 'constants/app_theme.dart';
-import 'constants/strings.dart';
-import 'ui/splash/splash.dart';
+import 'core/app/app_initializer.dart';
+import 'core/app/my_app.dart';
+import 'core/app_locale/app_locale.dart';
+import 'core/constants/app_url.dart';
 
-void main() {
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-    DeviceOrientation.landscapeRight,
-    DeviceOrientation.landscapeLeft,
-  ]).then((_) {
-    runApp(MyApp());
-  });
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await AppInitializer.initSettingsAndServices();
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [AppLocale.arabic, AppLocale.english],
+      path: AppUrl.translations,
+      startLocale: AppLocale.arabic,
+      fallbackLocale: AppLocale.arabic,
+      child: const MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: Strings.appName,
-      theme: themeData,
-      routes: Routes.routes,
-      home: SplashScreen(),
-    );
-  }
-}
 ```
 
 ## Conclusion
 
-I will be happy to answer any questions that you may have on this approach, and if you want to lend a hand with the boilerplate then please feel free to submit an issue and/or pull request 🙂
+I will be happy to answer any questions that you may have on this approach, and if you want to lend a hand with the Appify then please feel free to submit an issue and/or pull request 🙂
 
-Again to note, this is example can appear as over-architectured for what it is - but it is an example only. If you liked my work, don’t forget to ⭐ star the repo to show your support.
+Again to note, this is example can appear as over-architecture for what it is - but it is an example only. If you liked my work, don’t forget to ⭐ star the repo to show your support.
