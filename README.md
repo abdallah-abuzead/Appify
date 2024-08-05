@@ -150,7 +150,7 @@ core/
 │   │   ├── math_extensions.dart
 │   │   ├── on_tap_extension.dart
 │   │   ├── size_extensions.dart
-│   │   ├── string_extensions.dart
+│   │   └── string_extensions.dart
 │   ├── validation/
 │   │   ├── validation_error.dart
 │   │   └── validator.dart
