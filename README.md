@@ -44,6 +44,7 @@ flutter pub get
 ## Appify Features:
 
 * Splash
+* Login
 * Home
 * Workshops
 * Reservations
@@ -108,79 +109,79 @@ Now, lets dive into the lib folder which has the main code for the application.
 ```
 core/
 ├── app/
-    ├── app_initializer.dart
-    |- app_root_provider.dart
-    |- my_app.dart
-|- app_injections/
-    |- app_injections.dart
-|- app_locale/
-    |- app_locale.dart
-|- app_router/
-    |- app_router.dart
-|- app_themes/
-    |- app_themes.dart
-|- bloc_observer/
-    |- bloc_observer.dart 
-|- constants/
-    |- assets/
-        |- app_icons.dart
-        |- app_images.dart
-    |- app_colors.dart  
-    |- app_constants.dart  
-    |- app_strings.dart  
-    |- app_url.dart 
-|- errors/
-    |- exceptions.dart
-    |- failure_message.dart
-    |- failures.dart
-|- network/
-    |- api_handler.dart
-    |- api_helper.dart
-    |- dio_interceptor.dart
-    |- network_checker.dart
-|- screens/
-    |- bottom_nav_screen.dart 
-    |- splash_screen.dart
-|- utils/
-    |- caching_sevices/
-        |- shared_preferences_services.dart
-    |- extensions/
-        |- date_time_extensions.dart
-        |- math_extensions.dart
-        |- on_tap_extension.dart
-        |- size_extensions.dart
-        |- string_extensions.dart
-    |- validation/
-        |- validation_error.dart
-        |- validator.dart
-    |- app_date_utils.dart
-    |- app_functions.dart
-    |- debouncer.dart
-|- widgets
-    |- app_input_fields/
-        |- app_rounded_text_field.dart
-        |- input_label.dart
-    |- cookbooks/
-        |- loading_dialog.dart
-        |- loading_progress.dart
-        |- loading_widget.dart
-        |- snackbar_message.dart
-        |- toast.dart
-    |- dialogs/
-        |- app_dialog.dart
-    |- errors/
-        |- empty_widget.dart
-        |- offline_widget.dart
-        |- server_error_widget.dart
-        |- unauthorized_widget.dart
-    |- app_button.dart
-    |- app_drop_down_menu.dart
-    |- app_text.dart
-    |- change_language_widget.dart
-    |- circle_cached_network_image.dart
-    |- custom_app_bar.dart
-    |- custom_auto_size_text.dart
-    |- rounded_cached_network_image.dart
+│   ├── app_initializer.dart
+│   ├── app_root_provider.dart
+│   └── my_app.dart
+├── app_injections/
+│   └── app_injections.dart
+├── app_locale/
+│   └── app_locale.dart
+├── app_router/
+│   └── app_router.dart
+├── app_themes/
+│   └── app_themes.dart
+├── bloc_observer/
+│   └── bloc_observer.dart 
+├── constants/
+│   ├── assets/
+│   │   ├── app_icons.dart
+│   │   └── app_images.dart
+│   ├── app_colors.dart  
+│   ├── app_constants.dart  
+│   ├── app_strings.dart  
+│   └── app_url.dart 
+├── errors/
+│   ├── exceptions.dart
+│   ├── failure_message.dart
+│   └── failures.dart
+├── network/
+│   ├── api_handler.dart
+│   ├── api_helper.dart
+│   ├── dio_interceptor.dart
+│   └── network_checker.dart
+├── screens/
+│   ├── bottom_nav_screen.dart 
+│   └── splash_screen.dart
+├── utils/
+│   ├── caching_sevices/
+│   │   └── shared_preferences_services.dart
+│   ├── extensions/
+│   │   ├── date_time_extensions.dart
+│   │   ├── math_extensions.dart
+│   │   ├── on_tap_extension.dart
+│   │   ├── size_extensions.dart
+│   │   ├── string_extensions.dart
+│   ├── validation/
+│   │   ├── validation_error.dart
+│   │   └── validator.dart
+│   ├── app_date_utils.dart
+│   ├── app_functions.dart
+│   └── debouncer.dart
+└── widgets
+    ├── app_input_fields/
+    │   ├── app_rounded_text_field.dart
+    │   └── input_label.dart
+    ├── cookbooks/
+    │   ├── loading_dialog.dart
+    │   ├── loading_progress.dart
+    │   ├── loading_widget.dart
+    │   ├── snackbar_message.dart
+    │   └── toast.dart
+    ├── dialogs/
+    │   └── app_dialog.dart
+    ├── errors/
+    │   ├── empty_widget.dart
+    │   ├── offline_widget.dart
+    │   ├── server_error_widget.dart
+    │   └── unauthorized_widget.dart
+    ├── app_button.dart
+    ├── app_drop_down_menu.dart
+    ├── app_text.dart
+    ├── change_language_widget.dart
+    ├── circle_cached_network_image.dart
+    ├── custom_app_bar.dart
+    ├── custom_auto_size_text.dart
+    └── rounded_cached_network_image.dart
            
 ```
 
@@ -202,40 +203,40 @@ Each module has the same structure and layers, so I'll explain one module and th
 
 ```
 modules/
-|- auth/
-|- home/
-|- reservations/
-    |- data/
-        |- data_sources/
-            |- reservations_remote_data_source.dart
-        |- models/
-            |- reservation.dart
-        |- repositories/
-            |- reservations_repository.dart
-    |- domain/
-        |- entities/
-        |- repositories/
-        |- use_cases/
-    |- presentation/
-        |- cubits/
-            |- reservations/
-                |- reservations_cubit.dart
-                |- reservations_state.dart
-            |- reservations_actions/
-                |- reservations_actions_cubit.dart
-                |- reservations_actions_state.dart
-        |- screens/
-            |- order_details_screen.dart
-            |- reservation_details_screen.dart
-            |- reservations_screen.dart
-        |- widgets/
-            |- order_details_screen/
-                |- order_details_item.dart
-            |- reservations_screen/
-                |- pending_tab.dart
-                |- reservation_card.dart
-                |- reservation_card_details_item.dart
-|- settings/
+├── auth/
+├── home/
+├── reservations/
+│   ├── data/
+│   │   ├── data_sources/
+│   │   │   └── reservations_remote_data_source.dart
+│   │   ├── models/
+│   │   │   └── reservation.dart
+│   │   └── repositories/
+│   │       └── reservations_repository.dart
+│   ├── domain/
+│   │   ├── entities/
+│   │   ├── repositories/
+│   │   └── use_cases/
+│   └── presentation/
+│       ├── cubits/
+│       │   ├── reservations/
+│       │   │   ├── reservations_cubit.dart│
+│       │   │   └── reservations_state.dart
+│       │   └── reservations_actions/
+│       │       ├── reservations_actions_cubit.dart
+│       │       └── reservations_actions_state.dart
+│       ├── screens/
+│       │   ├── order_details_screen.dart
+│       │   ├── reservation_details_screen.dart
+│       │   └── reservations_screen.dart
+│       └── widgets/
+│           ├── order_details_screen/
+│           │   └── order_details_item.dart
+│           └── reservations_screen/
+│               ├── pending_tab.dart
+│               ├── reservation_card.dart
+│               └── reservation_card_details_item.dart
+└── settings/
 
 ```
 
